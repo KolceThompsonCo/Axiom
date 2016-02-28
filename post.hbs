@@ -1,0 +1,95 @@
+{{!< default}}
+
+{{#post}}
+    <header>
+        {{#if image}}
+            <img src="{{image}}">
+        {{/if}}
+
+        <nav>
+            {{#if @blog.logo}}
+                <a href="{{@blog.url}}">
+                    <img src="{{@blog.logo}}" alt="{{@blog.title}}" />
+                </a>
+            {{/if}}
+        </nav>
+    </header>
+
+    <main role="main">
+        <article class="{{post_class}}">
+
+            <header>
+                <h1>{{title}}</h1>
+                <section>
+                    <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+                    {{tags prefix=" on "}}
+                </section>
+            </header>
+
+            <section>
+                {{content}}
+            </section>
+
+            <footer>
+                {{#author}}
+                    {{#if image}}
+                        <figure>
+                            <a href="{{url}}">
+                                <img src="{{image}}" alt="{{name}}">
+                            </a>
+
+                            <figcaption>{{name}}'s Picture</figcaption>
+                        </figure>
+                    {{/if}}
+
+                    <section>
+                        <h4><a href="{{url}}">{{name}}</a></h4>
+
+                        {{#if bio}}
+                            <p>{{bio}}</p>
+                        {{else}}
+                            <p>Read <a href="{{url}}">more posts</a> by this author.</p>
+                        {{/if}}
+
+                        <div>
+                            {{#if location}}<span>{{location}}</span>{{/if}}
+                            {{#if website}}<a href="{{website}}">{{website}}</a>{{/if}}
+                        </div>
+                    </section>
+                {{/author}}
+
+                <aside>
+                    <h4>Share this post</h4>
+
+                    <a href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"> Twitter </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"> Facebook </a>
+                    <a href="https://plus.google.com/share?url={{url absolute="true"}}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"> Google+ </a>
+                </aside>
+            </footer>
+        </article>
+    </main>
+
+    <nav>
+        {{#next_post}}
+            <a href="{{url}}">
+                {{#if image}}
+                    <img src="{{image}}">
+                {{/if}}
+
+                <h2>{{title}}</h2>
+                <p>{{excerpt words="19"}}&hellip;</p>
+            </a>
+        {{/next_post}}
+
+        {{#prev_post}}
+            <a href="{{url}}">
+                {{#if image}}
+                    <img src="{{image}}">
+                {{/if}}
+
+                <h2>{{title}}</h2>
+                <p>{{excerpt words="19"}}&hellip;</p>
+            </a>
+        {{/prev_post}}
+    </nav>
+{{/post}}
