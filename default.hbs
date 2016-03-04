@@ -23,7 +23,17 @@
             <p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        {{navigation}}
+        <nav>
+            <h3>Menu</h3>
+
+            <ul>
+                {{#foreach navigation}}
+                    <li class="{{slug}}{{#if current}} -active{{/if}}" role="presentation"><a href="{{url absolute="true"}}">{{label}}</a></li>
+                {{/foreach}}
+            </ul>
+
+            <a href="{{@blog.url}}/rss/">Subscribe</a>
+        </nav>
 
         {{{body}}}
 

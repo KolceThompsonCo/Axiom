@@ -40,5 +40,34 @@
 {{/author}}
 
 <main role="main">
-    {{> "loop"}}
+    {{#foreach posts}}
+        <article class="{{post_class}}">
+            <header>
+                <h2><a href="{{url}}">{{{title}}}</a></h2>
+            </header>
+
+            <section>
+                <p>{{excerpt words="26"}} <a href="{{url}}">&raquo;</a></p>
+            </section>
+
+            <footer>
+                {{#if author.image}}<img src="{{author.image}}" alt="{{author.name}}">{{/if}}
+                {{author}}
+                {{tags prefix=" on "}}
+                <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+            </footer>
+        </article>
+    {{/foreach}}
+
+    <nav role="navigation">
+        {{#if prev}}
+            <a href="{{page_url prev}}">&larr; Newer Posts</a>
+        {{/if}}
+
+        <span>Page {{page}} of {{pages}}</span>
+
+        {{#if next}}
+            <a href="{{page_url next}}">Older Posts &rarr;</a>
+        {{/if}}
+    </nav>
 </main>
