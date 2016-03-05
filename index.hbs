@@ -1,23 +1,6 @@
 {{!< default}}
 
-<header>
-    {{#if @blog.cover}}
-        <img src="{{@blog.cover}}">
-    {{/if}}
-
-    <nav>
-        {{#if @blog.logo}}
-            <a href="{{@blog.url}}">
-                <img src="{{@blog.logo}}" alt="{{@blog.title}}">
-            </a>
-        {{/if}}
-    </nav>
-
-    <h1>
-        {{@blog.title}}
-        <small>{{@blog.description}}</small>
-    </h1>
-</header>
+{{> blog-header}}
 
 <main role="main">
     {{> loop}}
