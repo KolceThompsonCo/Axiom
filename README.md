@@ -5,7 +5,17 @@ Starting point for Ghost theme development
 
 ## Features
 
-- Modular (Still working on this)
+- Modular
+    - Author header
+    - Blog header
+    - Post header
+    - Tag header
+    - Posts Loop
+    - Blog footer
+    - Post footer
+    - Post navigation
+    - Navigation
+    - Pagination
 - No HTML classes
 - No CSS
 - No JS
