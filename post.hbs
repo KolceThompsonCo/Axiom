@@ -1,19 +1,7 @@
 {{!< default}}
 
 {{#post}}
-    <header>
-        {{#if image}}
-            <img src="{{image}}">
-        {{/if}}
-
-        <nav>
-            {{#if @blog.logo}}
-                <a href="{{@blog.url}}">
-                    <img src="{{@blog.logo}}" alt="{{@blog.title}}">
-                </a>
-            {{/if}}
-        </nav>
-    </header>
+    {{> post-header}}
 
     <main role="main">
         <article class="{{post_class}}">
@@ -61,27 +49,5 @@
         </article>
     </main>
 
-    <nav>
-        {{#next_post}}
-            <a href="{{url}}">
-                {{#if image}}
-                    <img src="{{image}}">
-                {{/if}}
-
-                <h2>{{title}}</h2>
-                <p>{{excerpt words="19"}}&hellip;</p>
-            </a>
-        {{/next_post}}
-
-        {{#prev_post}}
-            <a href="{{url}}">
-                {{#if image}}
-                    <img src="{{image}}">
-                {{/if}}
-
-                <h2>{{title}}</h2>
-                <p>{{excerpt words="19"}}&hellip;</p>
-            </a>
-        {{/prev_post}}
-    </nav>
+    {{> post-na}}
 {{/post}}
