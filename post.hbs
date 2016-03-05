@@ -3,7 +3,21 @@
 {{#post}}
     {{> post-header}}
 
-    {{> post-content}}
+    <article class="{{post_class}}">
+        <header>
+            <h1>{{title}}</h1>
+            <section>
+                <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
+                {{tags prefix=" on "}}
+            </section>
+        </header>
+
+        <section>
+            {{content}}
+        </section>
+
+        {{> post-footer}}
+    </article>
 
     {{> post-nav}}
 {{/post}}
