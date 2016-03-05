@@ -1,33 +1,6 @@
 {{!< default}}
 
-<header>
-    {{#if tag.image}}
-        <img src="{{tag.image}}">
-    {{else}}
-        {{#if @blog.cover}}
-            <img src="{{@blog.cover}}">
-        {{/if}}
-    {{/if}}
-
-    <nav>
-        {{#if @blog.logo}}
-            <a href="{{@blog.url}}">
-                <img src="{{@blog.logo}}" alt="{{@blog.title}}">
-            </a>
-        {{/if}}
-    </nav>
-
-    <h1>
-        {{tag.name}}
-        <small>
-            {{#if tag.description}}
-                {{tag.description}}
-            {{else}}
-                A {{pagination.total}}-post collection
-            {{/if}}
-        </small>
-    </h1>
-</header>
+{{> tag-header}}
 
 <main role="main">
     {{> loop}}
