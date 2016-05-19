@@ -24,5 +24,5 @@ Starting point for Ghost theme development
 ## Runnning
 
 ```
-docker run -v (pwd)/src:/var/lib/ghost/themes/axiom -p 2368:2368 -d jameskolce/axiom
+docker run -v $(pwd)/src:/var/lib/ghost/themes/axiom -p 2368:2368 -d jameskolce/axiom
 ```
