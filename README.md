@@ -20,3 +20,9 @@ Starting point for Ghost theme development
 - No CSS
 - No JS
 - Google Analytics
+
+## Runnning
+
+```
+docker run -v (pwd)/src:/var/lib/ghost/themes/axiom -p 2368:2368 -d jameskolce/axiom
+``
