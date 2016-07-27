@@ -1,7 +1,19 @@
 {{!< default}}
 
 {{#post}}
-    {{> post-header}}
+    <header>
+        {{#if image}}
+            <img src="{{image}}">
+        {{/if}}
+
+        <nav>
+            {{#if @blog.logo}}
+                <a href="{{@blog.url}}">
+                    <img src="{{@blog.logo}}" alt="{{@blog.title}}">
+                </a>
+            {{/if}}
+        </nav>
+    </header>
 
     <article class="{{post_class}}">
         <header>
@@ -16,8 +28,57 @@
             {{content}}
         </section>
 
-        {{> post-footer}}
+        <footer>
+            {{#author}}
+                {{#if image}}
+                    <figure>
+                        <a href="{{url}}">
+                            <img src="{{image}}" alt="{{name}}">
+                        </a>
+
+                        <figcaption>{{name}}'s Picture</figcaption>
+                    </figure>
+                {{/if}}
+
+                <section>
+                    <h4><a href="{{url}}">{{name}}</a></h4>
+
+                    {{#if bio}}
+                        <p>{{bio}}</p>
+                    {{else}}
+                        <p>Read <a href="{{url}}">more posts</a> by this author.</p>
+                    {{/if}}
+
+                    <div>
+                        {{#if location}}<span>{{location}}</span>{{/if}}
+                        {{#if website}}<a href="{{website}}">{{website}}</a>{{/if}}
+                    </div>
+                </section>
+            {{/author}}
+        </footer>
     </article>
 
-    {{> post-nav}}
+    <nav>
+        {{#next_post}}
+            <a href="{{url}}">
+                {{#if image}}
+                    <img src="{{image}}">
+                {{/if}}
+
+                <h2>{{title}}</h2>
+                <p>{{excerpt words="19"}}&hellip;</p>
+            </a>
+        {{/next_post}}
+
+        {{#prev_post}}
+            <a href="{{url}}">
+                {{#if image}}
+                    <img src="{{image}}">
+                {{/if}}
+
+                <h2>{{title}}</h2>
+                <p>{{excerpt words="19"}}&hellip;</p>
+            </a>
+        {{/prev_post}}
+    </nav>
 {{/post}}

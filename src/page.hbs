@@ -1,7 +1,19 @@
 {{!< default}}
 
 {{#post}}
-    {{> post-header}}
+    <header>
+        {{#if image}}
+            <img src="{{image}}">
+        {{/if}}
+
+        <nav>
+            {{#if @blog.logo}}
+                <a href="{{@blog.url}}">
+                    <img src="{{@blog.logo}}" alt="{{@blog.title}}">
+                </a>
+            {{/if}}
+        </nav>
+    </header>
 
     <main class="{{post_class}}" role="main">
         <header>

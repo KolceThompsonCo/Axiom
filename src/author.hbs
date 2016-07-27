@@ -1,6 +1,29 @@
 {{!< default}}
 
-{{> author-header}}
+{{#author}}
+    <header>
+        {{#if image}}
+            <figure>
+                <a href="{{url}}">
+                    <img src="{{image}}" alt="{{name}}">
+                </a>
+                <figcaption>{{name}}'s Picture</figcaption>
+            </figure>
+        {{/if}}
+
+        <h1>{{name}}</h1>8
+
+        {{#if bio}}
+            <p>{{bio}}</p>
+        {{/if}}
+
+        <div>
+            {{#if location}} <span>{{location}}</span> {{/if}}
+            {{#if website}} <a href="{{website}}">{{website}}</a> {{/if}}
+            <span>{{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}</span>
+        </div>
+    </header>
+{{/author}}
 
 <main role="main">
     {{> loop}}
